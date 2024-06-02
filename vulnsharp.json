@@ -34,6 +34,146 @@
             "recommendation": "Проверяйте входные данные перед использованием File.WriteAllText.",
             "pattern": ".*File\\.WriteAllText\\(.*\\+.*\\).*",
             "search_query": "how to securely use File.WriteAllText in c#"
+        },
+        {
+            "name": "Eval",
+            "description": "Использование eval может привести к выполнению произвольного кода.",
+            "recommendation": "Избегайте использования eval и используйте безопасные альтернативы.",
+            "pattern": ".*Eval\\(.*\\).*",
+            "search_query": "how to avoid using eval in c#"
+        },
+        {
+            "name": "XPath Injection",
+            "description": "Использование неподтвержденных данных в XPath-запросах может привести к выполнению произвольных команд.",
+            "recommendation": "Используйте параметризованные XPath-запросы.",
+            "pattern": ".*XPathExpression\\.Compile\\(.*\\+.*\\).*",
+            "search_query": "how to prevent XPath injection in c#"
+        },
+        {
+            "name": "Command Injection",
+            "description": "Выполнение команд с использованием небезопасных данных может привести к выполнению произвольных команд.",
+            "recommendation": "Используйте безопасные методы для выполнения команд.",
+            "pattern": ".*Process\\.Start\\(.*\\).*",
+            "search_query": "how to prevent command injection in c#"
+        },
+        {
+            "name": "Path Traversal",
+            "description": "Использование пользовательских данных для доступа к файловой системе может привести к обходу директорий.",
+            "recommendation": "Проверяйте и нормализуйте пути файлов.",
+            "pattern": ".*File\\.Open\\(.*\\+.*\\).*",
+            "search_query": "how to prevent path traversal in c#"
+        },
+        {
+            "name": "Cross-Site Scripting (XSS)",
+            "description": "Внедрение пользовательских данных без фильтрации может привести к XSS.",
+            "recommendation": "Используйте экранирование и валидацию данных.",
+            "pattern": ".*Response\\.Write\\(.*\\$.*\\).*",
+            "search_query": "how to prevent XSS in c#"
+        },
+        {
+            "name": "Insecure Deserialization",
+            "description": "Десериализация недоверенных данных может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте безопасные методы сериализации и десериализации.",
+            "pattern": ".*BinaryFormatter\\.Deserialize\\(.*\\).*",
+            "search_query": "how to prevent insecure deserialization in c#"
+        },
+        {
+            "name": "XML External Entities (XXE)",
+            "description": "Обработка небезопасных XML данных может привести к XXE атаке.",
+            "recommendation": "Отключайте обработку внешних сущностей в XML-парсерах.",
+            "pattern": ".*XmlDocument\\.Load\\(.*\\).*",
+            "search_query": "how to prevent XXE in c#"
+        },
+        {
+            "name": "Hardcoded Secrets",
+            "description": "Хранение секретов и ключей в коде небезопасно.",
+            "recommendation": "Используйте переменные окружения или специальные хранилища для секретов.",
+            "pattern": ".*ConfigurationManager\\.AppSettings\\[.*\\].*",
+            "search_query": "how to securely store secrets in c#"
+        },
+        {
+            "name": "Information Disclosure",
+            "description": "Вывод конфиденциальной информации в ошибках или логах может привести к утечкам.",
+            "recommendation": "Минимизируйте вывод конфиденциальной информации.",
+            "pattern": ".*Console\\.WriteLine\\(.*\\).*",
+            "search_query": "how to prevent information disclosure in c#"
+        },
+        {
+            "name": "Server-Side Request Forgery (SSRF)",
+            "description": "Атака, позволяющая отправлять запросы от имени сервера к произвольным ресурсам.",
+            "recommendation": "Ограничивайте и проверяйте исходящие запросы.",
+            "pattern": ".*HttpWebRequest\\.Create\\(.*\\).*",
+            "search_query": "how to prevent SSRF in c#"
+        },
+        {
+            "name": "Insecure Direct Object References (IDOR)",
+            "description": "Использование предсказуемых параметров объектов может привести к несанкционированному доступу.",
+            "recommendation": "Проверяйте права доступа перед предоставлением доступа к объектам.",
+            "pattern": ".*Request\\.QueryString\\[\"id\"\\].*",
+            "search_query": "how to prevent IDOR in c#"
+        },
+        {
+            "name": "Buffer Overflow",
+            "description": "Переполнение буфера может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте безопасные методы работы с памятью.",
+            "pattern": ".*unsafe.*",
+            "search_query": "how to prevent buffer overflow in c#"
+        },
+        {
+            "name": "Race Condition",
+            "description": "Конкуренция за ресурсы может привести к неожиданным результатам.",
+            "recommendation": "Используйте механизмы синхронизации.",
+            "pattern": ".*lock\\(.*\\).*",
+            "search_query": "how to prevent race condition in c#"
+        },
+        {
+            "name": "Use of Deprecated Functions",
+            "description": "Использование устаревших функций может привести к уязвимостям.",
+            "recommendation": "Используйте современные и поддерживаемые функции.",
+            "pattern": ".*(MD5|SHA1CryptoServiceProvider)\\(.*\\).*",
+            "search_query": "how to avoid deprecated functions in c#"
+        },
+        {
+            "name": "Cryptographic Issues",
+            "description": "Использование слабых или неправильных криптографических методов может привести к компрометации данных.",
+            "recommendation": "Используйте современные и безопасные криптографические библиотеки.",
+            "pattern": ".*(MD5|SHA1)\\(.*\\).*",
+            "search_query": "how to use secure cryptographic methods in c#"
+        },
+        {
+            "name": "Unencrypted Communication",
+            "description": "Передача данных без шифрования может привести к перехвату и изменению данных.",
+            "recommendation": "Используйте HTTPS и TLS для защиты данных при передаче.",
+            "pattern": ".*http://.*",
+            "search_query": "how to enforce HTTPS in c#"
+        },
+        {
+            "name": "LDAP Injection",
+            "description": "Использование неподтвержденных данных в LDAP-запросах может привести к выполнению произвольных LDAP-команд.",
+            "recommendation": "Используйте параметризованные запросы LDAP.",
+            "pattern": ".*DirectorySearcher\\.Filter\\(.*\\+.*\\).*",
+            "search_query": "how to prevent LDAP injection in c#"
+        },
+        {
+            "name": "No Rate Limiting",
+            "description": "Отсутствие ограничения частоты запросов может привести к атакам методом перебора.",
+            "recommendation": "Внедряйте лимиты частоты запросов и капчи.",
+            "pattern": ".*HttpContext\\.Current\\.Request.*",
+            "search_query": "how to implement rate limiting in c#"
+        },
+        {
+            "name": "Improper Error Handling",
+            "description": "Вывод подробной информации об ошибках может помочь атакующим.",
+            "recommendation": "Показывайте пользователям общие сообщения об ошибках и логируйте подробности.",
+            "pattern": ".*try\\{.*\\}catch\\(.*\\).*",
+            "search_query": "how to handle errors securely in c#"
+        },
+        {
+            "name": "Clickjacking",
+            "description": "Атака, при которой пользователь вводит данные на скрытый iframe.",
+            "recommendation": "Используйте заголовок X-Frame-Options.",
+            "pattern": ".*Response\\.AddHeader\\(\"X-Frame-Options\".*\\).*",
+            "search_query": "how to prevent clickjacking in c#"
         }
     ]
 }
