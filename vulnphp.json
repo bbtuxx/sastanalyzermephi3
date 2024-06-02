@@ -34,6 +34,174 @@
             "recommendation": "Избегайте использования shell_exec и используйте безопасные альтернативы.",
             "pattern": ".*shell_exec\\(.*\\$.*\\).*",
             "search_query": "how to avoid using shell_exec in php"
+        },
+        {
+            "name": "SQL Injection",
+            "description": "Использование небезопасных SQL-запросов может привести к SQL-инъекциям.",
+            "recommendation": "Используйте подготовленные выражения и параметризованные запросы.",
+            "pattern": ".*mysqli_query\\(.*\\$.*\\).*",
+            "search_query": "how to prevent SQL injection in php"
+        },
+        {
+            "name": "Cross-Site Scripting (XSS)",
+            "description": "Внедрение пользовательских данных без фильтрации может привести к XSS.",
+            "recommendation": "Используйте экранирование и валидацию данных.",
+            "pattern": ".*echo\\(.*\\$.*\\).*",
+            "search_query": "how to prevent XSS in php"
+        },
+        {
+            "name": "File Inclusion",
+            "description": "Использование файлов на основе пользовательских данных может привести к выполнению произвольного кода.",
+            "recommendation": "Проверяйте и ограничивайте доступные для включения файлы.",
+            "pattern": ".*(include|require)(_once)?\\(.*\\$.*\\).*",
+            "search_query": "how to prevent file inclusion in php"
+        },
+        {
+            "name": "Remote File Inclusion (RFI)",
+            "description": "Загрузка удаленных файлов на основе пользовательских данных может привести к выполнению произвольного кода.",
+            "recommendation": "Отключите возможность включения удаленных файлов.",
+            "pattern": ".*(include|require)(_once)?\\(.*http.*\\).*",
+            "search_query": "how to prevent remote file inclusion in php"
+        },
+        {
+            "name": "Local File Inclusion (LFI)",
+            "description": "Загрузка локальных файлов на основе пользовательских данных может привести к выполнению произвольного кода.",
+            "recommendation": "Проверяйте и ограничивайте доступные для включения файлы.",
+            "pattern": ".*(include|require)(_once)?\\(.*\\$.*\\).*",
+            "search_query": "how to prevent local file inclusion in php"
+        },
+        {
+            "name": "Session Hijacking",
+            "description": "Перехват сессии пользователя может привести к несанкционированному доступу.",
+            "recommendation": "Используйте безопасные методы управления сессиями.",
+            "pattern": ".*session_start\\(.*\\).*",
+            "search_query": "how to prevent session hijacking in php"
+        },
+        {
+            "name": "Command Injection",
+            "description": "Выполнение команд с использованием небезопасных данных может привести к выполнению произвольных команд.",
+            "recommendation": "Используйте безопасные методы для выполнения команд.",
+            "pattern": ".*exec\\(.*\\$.*\\).*",
+            "search_query": "how to prevent command injection in php"
+        },
+        {
+            "name": "Path Traversal",
+            "description": "Использование пользовательских данных для доступа к файловой системе может привести к обходу директорий.",
+            "recommendation": "Проверяйте и нормализуйте пути файлов.",
+            "pattern": ".*file_get_contents\\(.*\\$.*\\).*",
+            "search_query": "how to prevent path traversal in php"
+        },
+        {
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "description": "Атака, заставляющая пользователя выполнить нежелательные действия на доверенном сайте.",
+            "recommendation": "Используйте CSRF-токены.",
+            "pattern": ".*form\\..*csrf.*",
+            "search_query": "how to prevent CSRF in php"
+        },
+        {
+            "name": "Insecure Deserialization",
+            "description": "Десериализация недоверенных данных может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте безопасные методы сериализации и десериализации.",
+            "pattern": ".*unserialize\\(.*\\).*",
+            "search_query": "how to prevent insecure deserialization in php"
+        },
+        {
+            "name": "XML External Entities (XXE)",
+            "description": "Обработка небезопасных XML данных может привести к XXE атаке.",
+            "recommendation": "Отключайте обработку внешних сущностей в XML-парсерах.",
+            "pattern": ".*simplexml_load_string\\(.*\\).*",
+            "search_query": "how to prevent XXE in php"
+        },
+        {
+            "name": "Hardcoded Secrets",
+            "description": "Хранение секретов и ключей в коде небезопасно.",
+            "recommendation": "Используйте переменные окружения или специальные хранилища для секретов.",
+            "pattern": ".*define\\('SECRET_KEY'.*\\).*",
+            "search_query": "how to securely store secrets in php"
+        },
+        {
+            "name": "Information Disclosure",
+            "description": "Вывод конфиденциальной информации в ошибках или логах может привести к утечкам.",
+            "recommendation": "Минимизируйте вывод конфиденциальной информации.",
+            "pattern": ".*(print|echo|var_dump)\\(.*\\).*",
+            "search_query": "how to prevent information disclosure in php"
+        },
+        {
+            "name": "Server-Side Request Forgery (SSRF)",
+            "description": "Атака, позволяющая отправлять запросы от имени сервера к произвольным ресурсам.",
+            "recommendation": "Ограничивайте и проверяйте исходящие запросы.",
+            "pattern": ".*file_get_contents\\(.*http.*\\).*",
+            "search_query": "how to prevent SSRF in php"
+        },
+        {
+            "name": "Insecure Direct Object References (IDOR)",
+            "description": "Использование предсказуемых параметров объектов может привести к несанкционированному доступу.",
+            "recommendation": "Проверяйте права доступа перед предоставлением доступа к объектам.",
+            "pattern": ".*\\$_GET\\['id'\\].*",
+            "search_query": "how to prevent IDOR in php"
+        },
+        {
+            "name": "Buffer Overflow",
+            "description": "Переполнение буфера может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте безопасные методы работы с памятью.",
+            "pattern": ".*strcpy\\(.*\\).*",
+            "search_query": "how to prevent buffer overflow in php"
+        },
+        {
+            "name": "Race Condition",
+            "description": "Конкуренция за ресурсы может привести к неожиданным результатам.",
+            "recommendation": "Используйте механизмы синхронизации.",
+            "pattern": ".*flock\\(.*\\).*",
+            "search_query": "how to prevent race condition in php"
+        },
+        {
+            "name": "Use of Deprecated Functions",
+            "description": "Использование устаревших функций может привести к уязвимостям.",
+        "recommendation": "Используйте современные и поддерживаемые функции.",
+        "pattern": ".*(mysql_query|ereg|split)\\(.*\\).*",
+        "search_query": "how to avoid deprecated functions in php"
+        },
+        {
+            "name": "Cryptographic Issues",
+            "description": "Использование слабых или неправильных криптографических методов может привести к компрометации данных.",
+            "recommendation": "Используйте современные и безопасные криптографические библиотеки.",
+            "pattern": ".*(md5|sha1|crypt)\\(.*\\).*",
+            "search_query": "how to use secure cryptographic methods in php"
+        },
+        {
+            "name": "Unencrypted Communication",
+            "description": "Передача данных без шифрования может привести к перехвату и изменению данных.",
+            "recommendation": "Используйте HTTPS и TLS для защиты данных при передаче.",
+            "pattern": ".*http://.*",
+            "search_query": "how to enforce HTTPS in php"
+        },
+        {
+            "name": "LDAP Injection",
+            "description": "Использование неподтвержденных данных в LDAP-запросах может привести к выполнению произвольных LDAP-команд.",
+            "recommendation": "Используйте параметризованные запросы LDAP.",
+            "pattern": ".*ldap_search\\(.*\\$.*\\).*",
+            "search_query": "how to prevent LDAP injection in php"
+        },
+        {
+            "name": "No Rate Limiting",
+            "description": "Отсутствие ограничения частоты запросов может привести к атакам методом перебора.",
+            "recommendation": "Внедряйте лимиты частоты запросов и капчи.",
+            "pattern": ".*\\$_POST.*",
+            "search_query": "how to implement rate limiting in php"
+        },
+        {
+            "name": "Improper Error Handling",
+            "description": "Вывод подробной информации об ошибках может помочь атакующим.",
+            "recommendation": "Показывайте пользователям общие сообщения об ошибках и логируйте подробности.",
+            "pattern": ".*catch\\(.*\\).*",
+            "search_query": "how to handle errors securely in php"
+        },
+        {
+            "name": "Clickjacking",
+            "description": "Атака, при которой пользователь вводит данные на скрытый iframe.",
+            "recommendation": "Используйте заголовок X-Frame-Options.",
+            "pattern": ".*header\\('X-Frame-Options:.*\\).*",
+            "search_query": "how to prevent clickjacking in php"
         }
     ]
 }
