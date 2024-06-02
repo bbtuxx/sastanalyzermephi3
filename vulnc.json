@@ -1,0 +1,39 @@
+{
+    "vulnerabilities": [
+        {
+            "name": "gets",
+            "description": "Использование gets может привести к переполнению буфера.",
+            "recommendation": "Используйте fgets вместо gets.",
+            "pattern": ".*gets\\(.*\\).*",
+            "search_query": "how to avoid using gets in c"
+        },
+        {
+            "name": "strcpy",
+            "description": "Использование strcpy может привести к переполнению буфера.",
+            "recommendation": "Используйте strncpy вместо strcpy.",
+            "pattern": ".*strcpy\\(.*\\).*",
+            "search_query": "how to avoid using strcpy in c"
+        },
+        {
+            "name": "sprintf",
+            "description": "Использование sprintf может привести к переполнению буфера.",
+            "recommendation": "Используйте snprintf вместо sprintf.",
+            "pattern": ".*sprintf\\(.*\\).*",
+            "search_query": "how to avoid using sprintf in c"
+        },
+        {
+            "name": "scanf",
+            "description": "Использование scanf без ограничения длины может привести к переполнению буфера.",
+            "recommendation": "Убедитесь, что входные данные контролируются при использовании scanf.",
+            "pattern": ".*scanf\\(.*\\).*",
+            "search_query": "how to securely use scanf in c"
+        },
+        {
+            "name": "system",
+            "description": "Использование system может привести к выполнению командной строки с произвольными данными.",
+            "recommendation": "Избегайте использования system и используйте безопасные альтернативы.",
+            "pattern": ".*system\\(.*\\+.*\\).*",
+            "search_query": "how to avoid using system in c"
+        }
+    ]
+}

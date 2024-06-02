@@ -1,0 +1,39 @@
+{
+    "vulnerabilities": [
+        {
+            "name": "eval",
+            "description": "Использование eval может привести к выполнению произвольного кода.",
+            "recommendation": "Избегайте использования eval и используйте безопасные альтернативы.",
+            "pattern": ".*eval\\(.*\\).*",
+            "search_query": "how to avoid using eval in php"
+        },
+        {
+            "name": "include",
+            "description": "Использование include с неконтролируемыми входными данными может привести к выполнению произвольного кода.",
+            "recommendation": "Убедитесь, что входные данные контролируются при использовании include.",
+            "pattern": ".*include\\(.*\\$.*\\).*",
+            "search_query": "how to securely use include in php"
+        },
+        {
+            "name": "require",
+            "description": "Использование require с неконтролируемыми входными данными может привести к выполнению произвольного кода.",
+            "recommendation": "Убедитесь, что входные данные контролируются при использовании require.",
+            "pattern": ".*require\\(.*\\$.*\\).*",
+            "search_query": "how to securely use require in php"
+        },
+        {
+            "name": "system",
+            "description": "Использование system может привести к выполнению командной строки с произвольными данными.",
+            "recommendation": "Избегайте использования system и используйте безопасные альтернативы.",
+            "pattern": ".*system\\(.*\\$.*\\).*",
+            "search_query": "how to avoid using system in php"
+        },
+        {
+            "name": "shell_exec",
+            "description": "Использование shell_exec может привести к выполнению командной строки с произвольными данными.",
+            "recommendation": "Избегайте использования shell_exec и используйте безопасные альтернативы.",
+            "pattern": ".*shell_exec\\(.*\\$.*\\).*",
+            "search_query": "how to avoid using shell_exec in php"
+        }
+    ]
+}

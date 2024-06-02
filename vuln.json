@@ -1,0 +1,319 @@
+{
+    "vulnerabilities": [
+        {
+            "name": "eval",
+            "description": "Использование eval может привести к выполнению произвольного кода.",
+            "recommendation": "Избегайте использования eval и используйте безопасные альтернативы.",
+            "pattern": "eval(",
+            "search_query": "how to avoid using eval in python"
+        },
+        {
+            "name": "exec",
+            "description": "Использование exec может привести к выполнению произвольного кода.",
+            "recommendation": "Избегайте использования exec и используйте безопасные альтернативы.",
+            "pattern": "exec(",
+            "search_query": "how to avoid using exec in python"
+        },
+        {
+            "name": "os.system",
+            "description": "Использование os.system может привести к выполнению командной строки с произвольными данными.",
+            "recommendation": "Используйте subprocess вместо os.system для выполнения команд.",
+            "pattern": "os.system(",
+            "search_query": "how to avoid using os.system in python"
+        },
+        {
+            "name": "subprocess.Popen",
+            "description": "Небезопасное использование subprocess.Popen может привести к выполнению произвольных команд.",
+            "recommendation": "Используйте shlex.split для безопасного разделения аргументов.",
+            "pattern": "subprocess.Popen(",
+            "search_query": "how to securely use subprocess.Popen in python"
+        },
+        {
+            "name": "pickle.load",
+            "description": "Использование pickle.load на недоверенных данных может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте безопасные форматы данных, такие как JSON.",
+            "pattern": "pickle.load(",
+            "search_query": "how to avoid using pickle.load in python"
+        },
+        {
+            "name": "yaml.load",
+            "description": "Использование yaml.load на недоверенных данных может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте yaml.safe_load вместо yaml.load.",
+            "pattern": "yaml.load(",
+            "search_query": "how to securely use yaml.load in python"
+        },
+        {
+            "name": "input",
+            "description": "Использование input в Python 2 может привести к выполнению произвольного кода.",
+            "recommendation": "Используйте raw_input вместо input в Python 2.",
+            "pattern": "input(",
+            "search_query": "how to securely use input in python"
+        },
+        {
+            "name": "hashlib.md5",
+            "description": "Использование hashlib.md5 может быть небезопасным для криптографических операций.",
+            "recommendation": "Используйте hashlib.sha256 или более сильный алгоритм.",
+            "pattern": "hashlib.md5(",
+            "search_query": "why not use hashlib.md5 in python"
+        },
+        {
+            "name": "hashlib.sha1",
+            "description": "Использование hashlib.sha1 может быть небезопасным для криптографических операций.",
+            "recommendation": "Используйте hashlib.sha256 или более сильный алгоритм.",
+            "pattern": "hashlib.sha1(",
+            "search_query": "why not use hashlib.sha1 in python"
+        },
+        {
+            "name": "assert",
+            "description": "Использование assert для проверки входных данных может быть отключено в режиме оптимизации.",
+            "recommendation": "Используйте явные проверки и исключения.",
+            "pattern": "assert ",
+            "search_query": "why not use assert for validation in python"
+        },
+        {
+            "name": "open",
+            "description": "Использование open без указания режима может привести к непреднамеренной модификации файла.",
+            "recommendation": "Явно указывайте режим открытия файла.",
+            "pattern": "open(",
+            "search_query": "how to securely open files in python"
+        },
+        {
+            "name": "random",
+            "description": "Использование random для криптографических операций небезопасно.",
+            "recommendation": "Используйте secrets для криптографической безопасности.",
+            "pattern": "random.",
+            "search_query": "why not use random for cryptographic operations in python"
+        },
+        {
+            "name": "tempfile.mktemp",
+            "description": "Использование tempfile.mktemp может привести к уязвимостям гонок.",
+            "recommendation": "Используйте tempfile.mkstemp вместо tempfile.mktemp.",
+            "pattern": "tempfile.mktemp(",
+            "search_query": "why not use tempfile.mktemp in python"
+        },
+        {
+            "name": "cgi.escape",
+            "description": "Использование cgi.escape небезопасно и устарело.",
+            "recommendation": "Используйте html.escape вместо cgi.escape.",
+            "pattern": "cgi.escape(",
+            "search_query": "why not use cgi.escape in python"
+        },
+        {
+            "name": "urllib.urlopen",
+            "description": "Использование urllib.urlopen может быть небезопасным и устаревшим.",
+            "recommendation": "Используйте urllib.request.urlopen вместо urllib.urlopen.",
+            "pattern": "urllib.urlopen(",
+            "search_query": "why not use urllib.urlopen in python"
+        },
+        {
+            "name": "xml.etree.ElementTree",
+            "description": "Использование xml.etree.ElementTree может быть небезопасным при обработке недоверенных данных.",
+            "recommendation": "Используйте defusedxml для безопасного анализа XML.",
+            "pattern": "xml.etree.ElementTree",
+            "search_query": "how to securely use xml.etree.ElementTree in python"
+        },
+        {
+            "name": "os.chmod",
+            "description": "Небезопасное использование os.chmod может привести к нарушению прав доступа.",
+            "recommendation": "Осторожно используйте os.chmod и задавайте минимально необходимые права.",
+            "pattern": "os.chmod(",
+            "search_query": "how to securely use os.chmod in python"
+        },
+        {
+            "name": "shutil.rmtree",
+            "description": "Использование shutil.rmtree без проверок может быть небезопасным.",
+            "recommendation": "Проверяйте входные данные перед использованием shutil.rmtree.",
+            "pattern": "shutil.rmtree(",
+            "search_query": "how to securely use shutil.rmtree in python"
+        },
+        {
+            "name": "os.remove",
+            "description": "Использование os.remove без проверок может быть небезопасным.",
+            "recommendation": "Проверяйте входные данные перед использованием os.remove.",
+            "pattern": "os.remove(",
+            "search_query": "how to securely use os.remove in python"
+        },
+        {
+            "name": "tarfile.open",
+            "description": "Использование tarfile.open на недоверенных данных может быть небезопасным.",
+            "recommendation": "Проверяйте содержимое архива перед его распаковкой.",
+            "pattern": "tarfile.open(",
+            "search_query": "how to securely use tarfile.open in python"
+        },
+        {
+            "name": "glob.glob",
+            "description": "Использование glob.glob может привести к уязвимостям при обработке пользовательских данных.",
+            "recommendation": "Проверяйте входные данные перед использованием glob.glob.",
+            "pattern": "glob.glob(",
+            "search_query": "how to securely use glob.glob in python"
+        },
+        {
+            "name": "ftplib.FTP",
+            "description": "Использование ftplib.FTP без шифрования может быть небезопасным.",
+            "recommendation": "Используйте ftplib.FTP_TLS для защищенного соединения.",
+            "pattern": "ftplib.FTP(",
+            "search_query": "how to securely use ftplib.FTP in python"
+        },
+        {
+            "name": "smtplib.SMTP",
+            "description": "Использование smtplib.SMTP без шифрования может быть небезопасным.",
+            "recommendation": "Используйте smtplib.SMTP_SSL для защищенного соединения.",
+            "pattern": "smtplib.SMTP(",
+            "search_query": "how to securely use smtplib.SMTP in python"
+        },
+        {
+            "name": "poplib.POP3",
+            "description": "Использование poplib.POP3 без шифрования может быть небезопасным.",
+            "recommendation": "Используйте poplib.POP3_SSL для защищенного соединения.",
+            "pattern": "poplib.POP3(",
+            "search_query": "how to securely use poplib.POP3 in python"
+        },
+        {
+            "name": "imaplib.IMAP4",
+            "description": "Использование imaplib.IMAP4 без шифрования может быть небезопасным.",
+            "recommendation": "Используйте imaplib.IMAP4_SSL для защищенного соединения.",
+            "pattern": "imaplib.IMAP4(",
+            "search_query": "how to securely use imaplib.IMAP4 in python"
+        },
+        {
+            "name": "http.client.HTTPConnection",
+            "description": "Использование http.client.HTTPConnection без шифрования может быть небезопасным.",
+            "recommendation": "Используйте http.client.HTTPSConnection для защищенного соединения.",
+            "pattern": "http.client.HTTPConnection(",
+            "search_query": "how to securely use http.client.HTTPConnection in python"
+        },
+        {
+            "name": "sqlite3.connect",
+            "description": "Использование sqlite3.connect без проверок может быть небезопасным.",
+            "recommendation": "Используйте параметризованные запросы для предотвращения SQL-инъекций.",
+            "pattern": "sqlite3.connect(",
+            "search_query": "how to securely use sqlite3.connect in python"
+        },
+        {
+            "name": "pandas.read_csv",
+            "description": "Использование pandas.read_csv без указания разделителя может привести к ошибкам.",
+            "recommendation": "Явно указывайте разделитель при использовании pandas.read_csv.",
+            "pattern": "pandas.read_csv(",
+            "search_query": "how to securely use pandas.read_csv in python"
+        },
+        {
+            "name": "pandas.read_excel",
+            "description": "Использование pandas.read_excel без указания имени листа может привести к ошибкам.",
+            "recommendation": "Явно указывайте имя листа при использовании pandas.read_excel.",
+            "pattern": "pandas.read_excel(",
+            "search_query": "how to securely use pandas.read_excel in python"
+        },
+        {
+            "name": "pandas.read_json",
+            "description": "Использование pandas.read_json без указания параметров может привести к ошибкам.",
+            "recommendation": "Проверяйте и указывайте параметры при использовании pandas.read_json.",
+            "pattern": "pandas.read_json(",
+            "search_query": "how to securely use pandas.read_json in python"
+        },
+        {
+            "name": "requests.get",
+            "description": "Использование requests.get без указания таймаута может привести к зависанию.",
+            "recommendation": "Указывайте таймаут при использовании requests.get.",
+            "pattern": "requests.get(",
+            "search_query": "how to securely use requests.get in python"
+        },
+        {
+            "name": "requests.post",
+            "description": "Использование requests.post без указания таймаута может привести к зависанию.",
+            "recommendation": "Указывайте таймаут при использовании requests.post.",
+            "pattern": "requests.post(",
+            "search_query": "how to securely use requests.post in python"
+        },
+        {
+            "name": "flask",
+            "description": "Использование Flask без включения защиты от подделки межсайтовых запросов (CSRF) может быть небезопасным.",
+            "recommendation": "Включите защиту CSRF в вашем приложении Flask.",
+            "pattern": "from flask",
+            "search_query": "how to enable CSRF protection in Flask"
+        },
+        {
+            "name": "django",
+            "description": "Использование Django без включения защиты от подделки межсайтовых запросов (CSRF) может быть небезопасным.",
+            "recommendation": "Включите защиту CSRF в вашем приложении Django.",
+            "pattern": "from django",
+            "search_query": "how to enable CSRF protection in Django"
+        },
+        {
+            "name": "jwt.encode",
+            "description": "Использование jwt.encode без указания алгоритма может быть небезопасным.",
+            "recommendation": "Явно указывайте алгоритм при использовании jwt.encode.",
+            "pattern": "jwt.encode(",
+            "search_query": "how to securely use jwt.encode in python"
+        },
+        {
+            "name": "paramiko.SSHClient",
+            "description": "Использование paramiko.SSHClient без проверки ключей хоста может быть небезопасным.",
+            "recommendation": "Проверяйте ключи хоста при использовании paramiko.SSHClient.",
+            "pattern": "paramiko.SSHClient(",
+            "search_query": "how to securely use paramiko.SSHClient in python"
+        },
+        {
+            "name": "sqlalchemy.create_engine",
+            "description": "Использование sqlalchemy.create_engine без указания echo может привести к утечке данных.",
+            "recommendation": "Убедитесь, что echo=False, если это необходимо.",
+            "pattern": "sqlalchemy.create_engine(",
+            "search_query": "how to securely use sqlalchemy.create_engine in python"
+        },
+        {
+            "name": "selenium.webdriver.Chrome",
+            "description": "Использование selenium.webdriver.Chrome без указания параметров может привести к ошибкам.",
+            "recommendation": "Указывайте параметры при использовании selenium.webdriver.Chrome.",
+            "pattern": "selenium.webdriver.Chrome(",
+            "search_query": "how to securely use selenium.webdriver.Chrome in python"
+        },
+        {
+            "name": "jinja2.Template",
+            "description": "Использование jinja2.Template без включения автоэкранирования может быть небезопасным.",
+            "recommendation": "Включите автоэкранирование при использовании jinja2.Template.",
+            "pattern": "jinja2.Template(",
+            "search_query": "how to securely use jinja2.Template in python"
+        },
+        {
+            "name": "logging.basicConfig",
+            "description": "Использование logging.basicConfig без указания уровня логирования может привести к пропуску важных сообщений.",
+            "recommendation": "Явно указывайте уровень логирования при использовании logging.basicConfig.",
+            "pattern": "logging.basicConfig(",
+            "search_query": "how to securely use logging.basicConfig in python"
+        },
+        {
+            "name": "PIL.Image.open",
+            "description": "Использование PIL.Image.open без проверок может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием PIL.Image.open.",
+            "pattern": "PIL.Image.open(",
+            "search_query": "how to securely use PIL.Image.open in python"
+        },
+        {
+            "name": "BeautifulSoup",
+            "description": "Использование BeautifulSoup без указания парсера может привести к ошибкам.",
+            "recommendation": "Указывайте парсер при использовании BeautifulSoup.",
+            "pattern": "BeautifulSoup(",
+            "search_query": "how to securely use BeautifulSoup in python"
+        },
+        {
+            "name": "lxml.etree",
+            "description": "Использование lxml.etree без проверок может быть небезопасным.",
+            "recommendation": "Используйте безопасные методы парсинга при работе с lxml.etree.",
+            "pattern": "lxml.etree",
+            "search_query": "how to securely use lxml.etree in python"
+        },
+        {
+            "name": "socket",
+            "description": "Использование socket без указания таймаута может привести к зависанию.",
+            "recommendation": "Указывайте таймаут при использовании socket.",
+            "pattern": "socket.",
+            "search_query": "how to securely use socket in python"
+        },
+        {
+            "name": "multiprocessing",
+            "description": "Использование multiprocessing без указания методов может привести к ошибкам.",
+            "recommendation": "Указывайте методы при использовании multiprocessing.",
+            "pattern": "multiprocessing.",
+            "search_query": "how to securely use multiprocessing in python"
+        }
+    ]
+}

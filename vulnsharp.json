@@ -1,0 +1,39 @@
+{
+    "vulnerabilities": [
+        {
+            "name": "SqlCommand",
+            "description": "Использование SqlCommand без параметризованных запросов может привести к SQL-инъекциям.",
+            "recommendation": "Используйте параметризованные запросы для предотвращения SQL-инъекций.",
+            "pattern": ".*SqlCommand\\(.*\".*\\+.*\\).*",
+            "search_query": "how to securely use SqlCommand in c#"
+        },
+        {
+            "name": "HttpWebRequest",
+            "description": "Использование HttpWebRequest без проверки сертификатов может быть небезопасным.",
+            "recommendation": "Убедитесь, что проверка сертификатов включена при использовании HttpWebRequest.",
+            "pattern": ".*HttpWebRequest\\(.*\\).*",
+            "search_query": "how to securely use HttpWebRequest in c#"
+        },
+        {
+            "name": "WebClient",
+            "description": "Использование WebClient без указания таймаута может привести к зависанию.",
+            "recommendation": "Указывайте таймаут при использовании WebClient.",
+            "pattern": ".*WebClient\\(.*\\).*",
+            "search_query": "how to securely use WebClient in c#"
+        },
+        {
+            "name": "Process.Start",
+            "description": "Использование Process.Start с неконтролируемыми входными данными может быть небезопасным.",
+            "recommendation": "Проверяйте входные данные перед использованием Process.Start.",
+            "pattern": ".*Process\\.Start\\(.*\\+.*\\).*",
+            "search_query": "how to securely use Process.Start in c#"
+        },
+        {
+            "name": "File.WriteAllText",
+            "description": "Использование File.WriteAllText без проверки входных данных может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием File.WriteAllText.",
+            "pattern": ".*File\\.WriteAllText\\(.*\\+.*\\).*",
+            "search_query": "how to securely use File.WriteAllText in c#"
+        }
+    ]
+}
