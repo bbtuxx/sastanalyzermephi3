@@ -1,39 +1,205 @@
-{
-    "vulnerabilities": [
-        {
-            "name": "eval",
-            "description": "Использование eval может привести к выполнению произвольного кода.",
-            "recommendation": "Избегайте использования eval и используйте безопасные альтернативы.",
-            "pattern": ".*eval\\(.*\\).*",
-            "search_query": "how to avoid using eval in python"
-        },
-        {
-            "name": "exec",
-            "description": "Использование exec может привести к выполнению произвольного кода.",
-            "recommendation": "Избегайте использования exec и используйте безопасные альтернативы.",
-            "pattern": ".*exec\\(.*\\).*",
-            "search_query": "how to avoid using exec in python"
-        },
-        {
-            "name": "os.system",
-            "description": "Использование os.system может привести к выполнению командной строки с произвольными данными.",
-            "recommendation": "Используйте subprocess вместо os.system для выполнения команд.",
-            "pattern": ".*os\\.system\\(.*\\+.*\\).*",
-            "search_query": "how to avoid using os.system in python"
-        },
-        {
-            "name": "pickle.load",
-            "description": "Использование pickle.load на недоверенных данных может привести к выполнению произвольного кода.",
-            "recommendation": "Используйте безопасные форматы данных, такие как JSON.",
-            "pattern": ".*pickle\\.load\\(.*\\).*",
-            "search_query": "how to avoid using pickle.load in python"
-        },
-        {
-            "name": "input",
-            "description": "Использование input в Python 2 может привести к выполнению произвольного кода.",
-            "recommendation": "Используйте raw_input вместо input в Python 2.",
-            "pattern": ".*input\\(.*\\).*",
-            "search_query": "how to securely use input in python"
-        }
-    ]
-}
+"vulnerabilities": [
+    {
+        "name": "eval",
+        "description": "Использование eval может привести к выполнению произвольного кода.",
+        "recommendation": "Избегайте использования eval и используйте безопасные альтернативы.",
+        "pattern": ".*eval\\(.*\\).*",
+        "search_query": "how to avoid using eval in python"
+    },
+    {
+        "name": "exec",
+        "description": "Использование exec может привести к выполнению произвольного кода.",
+        "recommendation": "Избегайте использования exec и используйте безопасные альтернативы.",
+        "pattern": ".*exec\\(.*\\).*",
+        "search_query": "how to avoid using exec in python"
+    },
+    {
+        "name": "os.system",
+        "description": "Использование os.system может привести к выполнению командной строки с произвольными данными.",
+        "recommendation": "Используйте subprocess вместо os.system для выполнения команд.",
+        "pattern": ".*os\\.system\\(.*\\+.*\\).*",
+        "search_query": "how to avoid using os.system in python"
+    },
+    {
+        "name": "pickle.load",
+        "description": "Использование pickle.load на недоверенных данных может привести к выполнению произвольного кода.",
+        "recommendation": "Используйте безопасные форматы данных, такие как JSON.",
+        "pattern": ".*pickle\\.load\\(.*\\).*",
+        "search_query": "how to avoid using pickle.load in python"
+    },
+    {
+        "name": "input",
+        "description": "Использование input в Python 2 может привести к выполнению произвольного кода.",
+        "recommendation": "Используйте raw_input вместо input в Python 2.",
+        "pattern": ".*input\\(.*\\).*",
+        "search_query": "how to securely use input in python"
+    },
+    {
+        "name": "SQL Injection",
+        "description": "Использование небезопасных SQL-запросов может привести к SQL-инъекциям.",
+        "recommendation": "Используйте подготовленные выражения и параметризованные запросы.",
+        "pattern": ".*SELECT .* FROM .* WHERE .*\\+.*",
+        "search_query": "how to prevent SQL injection in python"
+    },
+    {
+        "name": "Command Injection",
+        "description": "Выполнение команд с использованием небезопасных данных может привести к выполнению произвольных команд.",
+        "recommendation": "Используйте безопасные методы для выполнения команд, такие как subprocess с параметрами.",
+        "pattern": ".*os\\.system\\(.*\\).*",
+        "search_query": "how to prevent command injection in python"
+    },
+    {
+        "name": "Path Traversal",
+        "description": "Использование пользовательских данных для доступа к файловой системе может привести к обходу директорий.",
+        "recommendation": "Проверяйте и нормализуйте пути файлов.",
+        "pattern": ".*open\\(.*\\+.*\\).*",
+        "search_query": "how to prevent path traversal in python"
+    },
+    {
+        "name": "Cross-Site Scripting (XSS)",
+        "description": "Внедрение пользовательских данных без фильтрации может привести к XSS.",
+        "recommendation": "Используйте экранирование и валидацию данных.",
+        "pattern": ".*render\\(.*\\).*",
+        "search_query": "how to prevent XSS in python"
+    },
+    {
+        "name": "Insecure Deserialization",
+        "description": "Десериализация недоверенных данных может привести к выполнению произвольного кода.",
+        "recommendation": "Используйте безопасные методы сериализации и десериализации.",
+        "pattern": ".*pickle\\.loads\\(.*\\).*",
+        "search_query": "how to prevent insecure deserialization in python"
+    },
+    {
+        "name": "XML External Entities (XXE)",
+        "description": "Обработка небезопасных XML данных может привести к XXE атаке.",
+        "recommendation": "Отключайте обработку внешних сущностей в XML-парсерах.",
+        "pattern": ".*etree\\.parse\\(.*\\).*",
+        "search_query": "how to prevent XXE in python"
+    },
+    {
+        "name": "Hardcoded Secrets",
+        "description": "Хранение секретов и ключей в коде небезопасно.",
+        "recommendation": "Используйте переменные окружения или специальные хранилища для секретов.",
+        "pattern": ".*SECRET_KEY.*=.*",
+        "search_query": "how to securely store secrets in python"
+    },
+    {
+        "name": "Insufficient Logging & Monitoring",
+        "description": "Отсутствие надлежащих логов и мониторинга может затруднить обнаружение атак.",
+        "recommendation": "Внедряйте подробное логирование и мониторинг.",
+        "pattern": ".*logging\\.(debug|info|warning|error|critical)\\(.*\\).*",
+        "search_query": "how to implement logging and monitoring in python"
+    },
+    {
+        "name": "Unvalidated Redirects and Forwards",
+        "description": "Непроверенные перенаправления могут быть использованы для фишинга и кражи данных.",
+        "recommendation": "Проверяйте URL перед перенаправлением.",
+        "pattern": ".*redirect\\(.*\\+.*\\).*",
+        "search_query": "how to prevent unvalidated redirects in python"
+    },
+    {
+        "name": "Open Redirect",
+        "description": "Непроверенные перенаправления могут использоваться для фишинга.",
+        "recommendation": "Используйте проверенные и фиксированные URL для перенаправлений.",
+        "pattern": ".*redirect\\(.*\\+.*\\).*",
+        "search_query": "how to prevent open redirect in python"
+    },
+    {
+        "name": "Cross-Site Request Forgery (CSRF)",
+        "description": "Атака, заставляющая пользователя выполнить нежелательные действия на доверенном сайте.",
+        "recommendation": "Используйте CSRF-токены.",
+        "pattern": ".*form\\..*csrf.*",
+        "search_query": "how to prevent CSRF in python"
+    },
+    {
+        "name": "Weak Password Policy",
+        "description": "Использование слабых паролей может привести к взлому аккаунтов.",
+        "recommendation": "Устанавливайте строгие правила для паролей.",
+        "pattern": ".*password.*",
+        "search_query": "how to implement strong password policy in python"
+    },
+    {
+        "name": "Information Disclosure",
+        "description": "Вывод конфиденциальной информации в ошибках или логах может привести к утечкам.",
+        "recommendation": "Минимизируйте вывод конфиденциальной информации.",
+        "pattern": ".*(print|log)\\(.*\\).*",
+        "search_query": "how to prevent information disclosure in python"
+    },
+    {
+        "name": "Server-Side Request Forgery (SSRF)",
+        "description": "Атака, позволяющая отправлять запросы от имени сервера к произвольным ресурсам.",
+        "recommendation": "Ограничивайте и проверяйте исходящие запросы.",
+        "pattern": ".*requests\\.get\\(.*\\+.*\\).*",
+        "search_query": "how to prevent SSRF in python"
+    },
+    {
+        "name": "Insecure Direct Object References (IDOR)",
+        "description": "Использование предсказуемых параметров объектов может привести к несанкционированному доступу.",
+        "recommendation": "Проверяйте права доступа перед предоставлением доступа к объектам.",
+        "pattern": ".*object_id.*",
+        "search_query": "how to prevent IDOR in python"
+    },
+    {
+        "name": "Buffer Overflow",
+        "description": "Переполнение буфера может привести к выполнению произвольного кода.",
+        "recommendation": "Используйте безопасные методы работы с памятью.",
+        "pattern": ".*(memcpy|strcpy|sprintf)\\(.*\\).*",
+        "search_query": "how to prevent buffer overflow in python"
+    },
+    {
+        "name": "Race Condition",
+        "description": "Конкуренция за ресурсы может привести к неожиданным результатам.",
+        "recommendation": "Используйте механизмы синхронизации.",
+        "pattern": ".*threading.*",
+        "search_query": "how to prevent race condition in python"
+    },
+    {
+        "name": "Use of Deprecated Functions",
+        "description": "Использование устаревших функций может привести к уязвимостям.",
+        "recommendation": "Используйте современные и поддерживаемые функции.",
+        "pattern": ".*(md5|sha1|base64)\\(.*\\).*",
+        "search_query": "how to avoid deprecated functions in python"
+    },
+    {
+        "name": "Cryptographic Issues",
+        "description": "Использование слабых или неправильных криптографических методов может привести к компрометации данных.",
+        "recommendation": "Используйте современные и безопасные криптографические библиотеки.",
+        "pattern": ".*(md5|sha1|DES)\\(.*\\).*",
+        "search_query": "how to use secure cryptographic methods in python"
+    },
+    {
+        "name": "Unencrypted Communication",
+        "description": "Передача данных без шифрования может привести к перехвату и изменению данных.",
+        "recommendation": "Используйте HTTPS и TLS для защиты данных при передаче.",
+        "pattern": ".*http://.*",
+        "search_query": "how to enforce HTTPS in python"
+    },
+    {
+        "name": "LDAP Injection",
+        "description": "Использование неподтвержденных данных в LDAP-запросах может привести к выполнению произвольных LDAP-команд.",
+        "recommendation": "Используйте параметризованные запросы LDAP.",
+        "pattern": ".*ldap\\.(search|bind)\\(.*\\+.*\\).*",
+        "search_query": "how to prevent LDAP injection in python"
+    },
+    {
+        "name": "No Rate Limiting",
+        "description": "Отсутствие ограничения частоты запросов может привести к атакам методом перебора.",
+        "recommendation": "Внедряйте лимиты частоты запросов и капчи.",
+        "pattern": ".*request.*",
+        "search_query": "how to implement rate limiting in python"
+    },
+    {
+        "name": "Improper Error Handling",
+        "description": "Вывод подробной информации об ошибках может помочь атакующим.",
+        "recommendation": "Показывайте пользователям общие сообщения об ошибках и логируйте подробности.",
+        "pattern": ".*except.*",
+        "search_query": "how to handle errors securely in python"
+    },
+    {
+        "name": "Clickjacking",
+        "description": "Атака, при которой пользователь вводит данные на скрытый iframe.",
+        "recommendation": "Используйте заголовок X-Frame-Options.",
+        "pattern": ".*render_template\\(.*\\).*",
+        "search_query": "how to prevent clickjacking in python"
+    }
+]
