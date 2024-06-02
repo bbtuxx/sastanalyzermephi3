@@ -34,6 +34,160 @@
             "recommendation": "Избегайте использования system и используйте безопасные альтернативы.",
             "pattern": ".*system\\(.*\\+.*\\).*",
             "search_query": "how to avoid using system in c"
+        },
+        {
+            "name": "strcat",
+            "description": "Использование strcat может привести к переполнению буфера.",
+            "recommendation": "Используйте strncat вместо strcat.",
+            "pattern": ".*strcat\\(.*\\).*",
+            "search_query": "how to avoid using strcat in c"
+        },
+        {
+            "name": "gets_s",
+            "description": "Несмотря на улучшения, gets_s может быть небезопасен при неправильном использовании.",
+            "recommendation": "Используйте fgets с проверками для большей безопасности.",
+            "pattern": ".*gets_s\\(.*\\).*",
+            "search_query": "how to securely use gets_s in c"
+        },
+        {
+            "name": "memcpy",
+            "description": "Использование memcpy с неконтролируемыми входными данными может привести к переполнению буфера.",
+            "recommendation": "Используйте memcpy_s или проверяйте длину буфера перед использованием.",
+            "pattern": ".*memcpy\\(.*\\).*",
+            "search_query": "how to securely use memcpy in c"
+        },
+        {
+            "name": "strlen",
+            "description": "Использование strlen с неподтвержденными данными может привести к переполнению буфера.",
+            "recommendation": "Проверяйте длину строки перед использованием.",
+            "pattern": ".*strlen\\(.*\\).*",
+            "search_query": "how to securely use strlen in c"
+        },
+        {
+            "name": "free",
+            "description": "Повторное использование или освобождение уже освобожденной памяти может привести к ошибкам.",
+            "recommendation": "Проверяйте указатели перед использованием free и устанавливайте их в NULL после освобождения.",
+            "pattern": ".*free\\(.*\\).*",
+            "search_query": "how to securely use free in c"
+        },
+        {
+            "name": "fopen",
+            "description": "Использование fopen без проверки пути может привести к уязвимостям.",
+            "recommendation": "Проверяйте и контролируйте пути файлов перед использованием fopen.",
+            "pattern": ".*fopen\\(.*\\).*",
+            "search_query": "how to securely use fopen in c"
+        },
+        {
+            "name": "malloc",
+            "description": "Неправильное использование malloc может привести к утечкам памяти.",
+            "recommendation": "Проверяйте результат malloc и используйте функции безопасного выделения памяти.",
+            "pattern": ".*malloc\\(.*\\).*",
+            "search_query": "how to securely use malloc in c"
+        },
+        {
+            "name": "realloc",
+            "description": "Неправильное использование realloc может привести к утечкам памяти и повреждению данных.",
+            "recommendation": "Проверяйте результат realloc и используйте его безопасные альтернативы.",
+            "pattern": ".*realloc\\(.*\\).*",
+            "search_query": "how to securely use realloc in c"
+        },
+        {
+            "name": "printf",
+            "description": "Использование printf с неконтролируемыми входными данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием printf.",
+            "pattern": ".*printf\\(.*\\+.*\\).*",
+            "search_query": "how to securely use printf in c"
+        },
+        {
+            "name": "vprintf",
+            "description": "Использование vprintf с неконтролируемыми входными данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием vprintf.",
+            "pattern": ".*vprintf\\(.*\\).*",
+            "search_query": "how to securely use vprintf in c"
+        },
+        {
+            "name": "atoi",
+            "description": "Использование atoi для преобразования строк в числа может привести к ошибкам.",
+            "recommendation": "Используйте strtol вместо atoi для большей безопасности.",
+            "pattern": ".*atoi\\(.*\\).*",
+            "search_query": "how to securely use atoi in c"
+        },
+        {
+            "name": "atof",
+            "description": "Использование atof для преобразования строк в числа с плавающей точкой может привести к ошибкам.",
+            "recommendation": "Используйте strtod вместо atof для большей безопасности.",
+            "pattern": ".*atof\\(.*\\).*",
+            "search_query": "how to securely use atof in c"
+        },
+        {
+            "name": "open",
+            "description": "Использование open без проверки пути может привести к уязвимостям.",
+            "recommendation": "Проверяйте и контролируйте пути файлов перед использованием open.",
+            "pattern": ".*open\\(.*\\).*",
+            "search_query": "how to securely use open in c"
+        },
+        {
+            "name": "close",
+            "description": "Повторное использование или закрытие уже закрытого дескриптора файла может привести к ошибкам.",
+            "recommendation": "Проверяйте дескрипторы файлов перед использованием close и устанавливайте их в -1 после закрытия.",
+            "pattern": ".*close\\(.*\\).*",
+            "search_query": "how to securely use close in c"
+        },
+        {
+            "name": "chown",
+            "description": "Изменение владельца файла с неконтролируемыми данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте данные перед использованием chown.",
+            "pattern": ".*chown\\(.*\\).*",
+            "search_query": "how to securely use chown in c"
+        },
+        {
+            "name": "chmod",
+            "description": "Изменение прав доступа к файлу с неконтролируемыми данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте данные перед использованием chmod.",
+            "pattern": ".*chmod\\(.*\\).*",
+            "search_query": "how to securely use chmod in c"
+        },
+        {
+            "name": "strtok",
+            "description": "Использование strtok может привести к состояниям гонки и непредсказуемому поведению.",
+            "recommendation": "Используйте strtok_r для потокобезопасного выполнения.",
+            "pattern": ".*strtok\\(.*\\).*",
+            "search_query": "how to securely use strtok in c"
+        },
+        {
+            "name": "sscanf",
+            "description": "Использование sscanf без ограничения длины может привести к переполнению буфера.",
+            "recommendation": "Убедитесь, что входные данные контролируются при использовании sscanf.",
+            "pattern": ".*sscanf\\(.*\\).*",
+            "search_query": "how to securely use sscanf in c"
+        },
+        {
+            "name": "write",
+            "description": "Использование write с неконтролируемыми данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием write.",
+            "pattern": ".*write\\(.*\\).*",
+            "search_query": "how to securely use write in c"
+        },
+        {
+            "name": "read",
+            "description": "Использование read с неконтролируемыми данными может привести к уязвимостям.",
+            "recommendation": "Проверяйте входные данные перед использованием read.",
+            "pattern": ".*read\\(.*\\).*",
+            "search_query": "how to securely use read in c"
+        },
+        {
+            "name": "fork",
+            "description": "Неправильное использование fork может привести к состояниям гонки.",
+            "recommendation": "Убедитесь в правильной синхронизации процессов при использовании fork.",
+            "pattern": ".*fork\\(.*\\).*",
+            "search_query": "how to securely use fork in c"
+        },
+        {
+            "name": "exec",
+            "description": "Использование exec с неконтролируемыми данными может привести к выполнению произвольного кода.",
+            "recommendation": "Проверяйте входные данные перед использованием exec.",
+            "pattern": ".*exec\\(.*\\).*",
+            "search_query": "how to securely use exec in c"
         }
     ]
 }
